@@ -32,9 +32,40 @@
       }
 
     </style>
+    <script>
+      let canvasContainer = null;
+      let canvas = null;
+  
+      const fetchHeight = () => {
+        const canvasContainerHeight = canvasContainer.clientHeight;
+        const canvasContainerWidth = canvasContainer.clientWidth;
+        const canvasHeight = canvas.height;
+        const canvasWidth = canvas.width;
+        let canvasViewHeight = null;
+        let canvasViewWidth = null;
+        if (canvasContainerHeight * canvas.width > canvasContainerWidth * canvas.height) {
+          canvasViewWidth = canvasContainerWidth;
+          canvasViewHeight = canvasContainerWidth * canvas.height / canvas.width;
+        } else {
+          canvasViewHeight = canvasContainerHeight;
+          canvasViewWidth = canvasContainerHeight * canvas.width / canvas.height;
+        }
+        canvas.style.height = `${canvasViewHeight}px`;
+        canvas.style.width = `${canvasViewWidth}px`;
+        console.log(canvasViewHeight, canvasViewWidth);
+      }
+      window.onload = () => {
+        canvasContainer = document.getElementById("canvas-container");
+        canvas = document.getElementById("canvas");
+        fetchHeight();
+      }
+      window.onresize = fetchHeight;
+    </script>
   </head>
   <body style="text-align: center; background: #000000;" >
-    <canvas id="unity-canvas" width=1280 height=720 ></canvas>
+    <div id=""canvas-container>
+      <canvas id="unity-canvas" width=1280 height=720 ></canvas>
+    </div>
     <script src="Build/build.loader.js"></script>
     <script>
       createUnityInstance(document.querySelector("#unity-canvas"), {
