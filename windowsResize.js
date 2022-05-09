@@ -4,7 +4,7 @@ var timer = 0;
 
 //初期化
 function init() {
-    canvas = document.getElementById('canvas');
+    canvas = document.getElementById('unity-canvas');
     container = document.createElement('div');
     container.style.width = window.innerWidth + 'px';
     container.style.height = window.innerHeight + 'px';
