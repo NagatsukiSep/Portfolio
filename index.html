@@ -5,67 +5,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>NagatsukiSep</title>
     <link rel="icon" href="favicon.ico">
-    <style>
-      html {
-        width: 100%;
-        height: 100%;
-      }
-      body {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        background-color: black;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      #unity-container {
-        position: relative;
-        height: 56.25vw;
-        width: 177.78vh;
-        max-height: 100vh;
-        max-width: 100vw;
-      }
-      #unity-canvas {
-        width: 1280;
-        height: 720;
-      }
-
-    </style>
-    <!-- <script>
-      let canvasContainer = null;
-      let canvas = null;
-  
-      const fetchHeight = () => {
-        const canvasContainerHeight = canvasContainer.clientHeight;
-        const canvasContainerWidth = canvasContainer.clientWidth;
-        const canvasHeight = canvas.height;
-        const canvasWidth = canvas.width;
-        let canvasViewHeight = null;
-        let canvasViewWidth = null;
-        if (canvasContainerHeight * canvas.width > canvasContainerWidth * canvas.height) {
-          canvasViewWidth = canvasContainerWidth;
-          canvasViewHeight = canvasContainerWidth * canvas.height / canvas.width;
-        } else {
-          canvasViewHeight = canvasContainerHeight;
-          canvasViewWidth = canvasContainerHeight * canvas.width / canvas.height;
-        }
-        canvas.style.height = `${canvasViewHeight}px`;
-        canvas.style.width = `${canvasViewWidth}px`;
-        console.log(canvasViewHeight, canvasViewWidth);
-      }
-      window.onload = () => {
-        canvasContainer = document.getElementById("canvas-container");
-        canvas = document.getElementById("canvas");
-        fetchHeight();
-      }
-      window.onresize = fetchHeight;
-    </script> -->
   </head>
-  <body style="text-align: center; background: #000000;" >
-    <div id="canvas-container">
-      <canvas id="unity-canvas" width=1280 height=720 ></canvas>
-    </div>
+  <body style="text-align: center">
+    <canvas id="unity-canvas" width=1280 height=720 style="width: 1280px; height: 720px; background: #FFFFFF"></canvas>
     <script src="Build/build.loader.js"></script>
     <script>
       createUnityInstance(document.querySelector("#unity-canvas"), {
